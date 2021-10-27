@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Home page</title>
+</head>
+
+<body>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>ATN Shop</strong>
+          </a>
+        </div>
+    </div>
+    <hr>
+    <a class="btn btn-outline-primary" href="/add">Add New Product</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Picture</th> 
+            </tr>
+        </thead>
+        {{#each products}}
+        <tr>
+            <td>{{_id}}</td>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td><img src="{{picURL}}" width="120" height="100" /></Td>
+            <td><a class="btn btn-info" href="/edit/{{_id}}">Edit</a></td>
+            <td><a class="btn btn-warning" href="/delete/{{_id}}">Delete</a></td>
+        </tr>
+        {{/each}}
+    </table>
+
+</body>
+
+</html>
