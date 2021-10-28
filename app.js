@@ -44,9 +44,13 @@ app.post('/insert', async (req, res) => {
     const name = req.body.txtName
     const price = req.body.txtPrice
     const url = req.body.txtURL;
-    const obj = { name: name, price: price, picURL: url }
-    await insertToDB(obj, "Products")
-    res.redirect('/')
+    if (name.length < 5) {
+        res.render('addproduct', {nameError: 'Name at least 5 character'})
+    } else {
+        const obj = { name: name, price: price, picURL: url }
+        await insertToDB(obj, "Products")
+        res.redirect('/')
+    }
 })
 
 const PORT = process.env.PORT || 5000
