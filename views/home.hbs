@@ -35,7 +35,7 @@
             <td>{{price}}</td>
             <td><img src="{{picURL}}" width="120" height="100" /></Td>
             <td><a class="btn btn-info" href="/edit/{{_id}}">Edit</a></td>
-            <td><a class="btn btn-warning" href="/delete/{{_id}}">Delete</a></td>
+            <td><a onclick="return confirm('Are your sure?')" class="btn btn-warning" href="/delete/{{_id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>
